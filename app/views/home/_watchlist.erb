@@ -1,0 +1,29 @@
+<div class="col3">
+    <h4>Your actual watchlist is: </h4>
+  </p>
+</div>
+  <% if (movies.empty?)  %>
+    <h> There's no movies in your watchlist </h> </div>
+  <% else %>
+    <table class="table table-bordered watchlist-table">
+      <thead>
+        <tr>
+          <th>Movie name </th>
+          <th>Artist</th>
+          <th>Censored name </th>
+          <th>Genre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% movies.each do |movie| %>
+          <tr>
+            <td><%= movie.name %></td>
+            <td><%= movie.artist %></td>
+            <td><%= movie.censored_name %></td>
+            <td><%= movie.genre %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

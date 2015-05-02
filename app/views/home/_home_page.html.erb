@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="pull-left float-right">
+    <h3>Take a look at your favourite movies</h3>
+  </div>
+</div>
+
+<div class="row double-padding">
+  <%= render 'search_form' %>
+</div>
+
+<div class="row">
+  <div id ="alert_placeholder"></div>
+</div>
+
+<div class="row double-padding">
+  <div id="results">
+    <%= render 'results', results: @results %>
+  </div>
+</div>
+
+
+<div class="row double-padding">
+  <div id="watchlist">
+    <%= render 'watchlist', movies: current_user.movies %>
+  </div>
+</div>
+

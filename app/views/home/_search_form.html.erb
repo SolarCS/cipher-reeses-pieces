@@ -1,0 +1,8 @@
+<%= form_tag("/search", method: "post", remote: "true", :class => 'form-horizontal') do %>
+  <div class="form-group">
+    <%= submit_tag("Search", class: "btn btn-default control-label") %>
+    <div class="col-sm-10">
+      <%= text_field_tag(:keyword, nil, class: "form-control") %>
+    </div>
+  </div><!-- /input-group -->
+<% end %>
