@@ -1,1 +1,4 @@
-$("#alert").show().delay(2000).fadeOut();
+$('#myAlert').slideDown().delay(2000).fadeOut();
+ $("body, html").animate({
+            scrollTop: $("#myAlert").offset().top-50
+        }, 600);

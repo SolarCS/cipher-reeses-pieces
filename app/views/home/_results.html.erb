@@ -1,7 +1,14 @@
 <% if results.length == 0 %>
-  <b> There's no movies containing this keyword on iTunes. Try another search term.</b>
+  <div class="col3">
+    <b> There's no movies containing this keyword on iTunes. Try another search term.</b>
+    </p>
+  </div>
 <% else %>
-  <table class="table table-striped">
+  <div class="col3">
+    <b>Fetched results: </b>
+  </p>
+  </div>
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>Movie name </th>
@@ -18,7 +25,7 @@
           <td><%= movie['trackCensoredName'] %></td>
           <td><%= movie['primaryGenreName'] %></td>
           <td>
-            <%= link_to 'Add to whatchlist', add_to_watchlist_path(:movie => movie), :method => :post, :class => 'btn btn-mini', remote: true %>
+            <%= link_to 'Add to whatchlist', add_to_watchlist_path(:movie => movie), :method => :post, :class => "btn btn-primary", remote: true %>
           </td>
         </tr>
       <% end %>

@@ -1,23 +1,29 @@
-<div class="col2 black_border_top">
-    <b>Take a look at your favorite movies</b>
-  </p>
+<div class="row">
+  <div class="pull-left float-right">
+    <h3>Take a look at your favourite movies</h3>
+  </div>
+</div>
+
+<div class="row double-padding">
+  <%= render 'search_form' %>
+</div>
+
+<div class="row">
+  <div class="alert alert-danger" id="myAlert" style="display:none;">
+      <p> Movie is already on the watchlist </p>
+  </div>
+</div>
+
+<div class="row double-padding">
+  <div id="results">
+    <%= render 'results', results: @results %>
+  </div>
 </div>
 
 
-
-<%= render 'search_form' %>
-<br>
-
-<div id="alert" class="col2 black_border_top hidden">
-    <p class="red"> Movie is already on the watchlist </p>
+<div class="row double-padding">
+  <div id="watchlist">
+    <%= render 'watchlist', movies: current_user.movies %>
+  </div>
 </div>
 
-<div id="results" class="col2 black_border_top">
-  <%= render 'results', results: @results %>
-</div>
-<br>
-<br>
-
-<div id="watchlist" class="col2 black_border_top">
-  <%= render 'watchlist', movies: current_user.movies %>
-</div>

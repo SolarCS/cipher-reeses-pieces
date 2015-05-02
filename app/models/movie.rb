@@ -3,6 +3,6 @@ class Movie < ActiveRecord::Base
 
   def self.build_from_itunes_response(movie)
     puts "Movie: " + movie.to_json
-    Movie.create(:name => movie['trackName'], :artist => movie['trackArtist'], :censored_name => movie['trackCensoredName'], :genre => movie['genre'])
+    Movie.create(:name => movie['trackName'], :artist => movie['artistName'], :censored_name => movie['trackCensoredName'], :genre => movie['primaryGenreName'])
   end
 end
