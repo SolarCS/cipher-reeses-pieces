@@ -8,7 +8,6 @@ class HomeController < ApplicationController
 
   def search
     @results = MovieServices.search(params[:keyword])
-    #binding.pry
   end
 
   def add_to_watchlist
