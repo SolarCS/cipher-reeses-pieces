@@ -1,0 +1,23 @@
+<div class="col2 black_border_top">
+    <b>Take a look at your favorite movies</b>
+  </p>
+</div>
+
+
+
+<%= render 'search_form' %>
+<br>
+
+<div id="alert" class="col2 black_border_top hidden">
+    <p class="red"> Movie is already on the watchlist </p>
+</div>
+
+<div id="results" class="col2 black_border_top">
+  <%= render 'results', results: @results %>
+</div>
+<br>
+<br>
+
+<div id="watchlist" class="col2 black_border_top">
+  <%= render 'watchlist', movies: current_user.movies %>
+</div>

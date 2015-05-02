@@ -11,5 +11,6 @@
  * file per style scope.
  *
  *= require_tree .
+ *= custom.css
  *= require_self
  */

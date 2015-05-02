@@ -1,10 +1,16 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  has_secure_password
+  #has_secure_password
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
+
+  has_many :movies
 
   def authenticate(password)
     return false unless user = super(password)
@@ -21,7 +27,7 @@ class User < ActiveRecord::Base
     token = SecureRandom.urlsafe_base64(nil, false)
     update_attribute :auth_token, token
   end
-  
+
   def destroy_token!
     update_attribute :auth_token, nil
   end
