@@ -14,6 +14,13 @@ gem 'devise'
 gem "twitter-bootstrap-rails"
 gem 'rest-client'
 
+group :assets do
+  gem 'therubyracer'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
 group :doc do
   gem 'sdoc', '0.4.0'
 end
