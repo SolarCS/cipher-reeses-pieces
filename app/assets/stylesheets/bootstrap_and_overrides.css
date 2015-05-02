@@ -9,3 +9,8 @@
 body{
   background-color: transparent;
 }
+
+.differentTable td{
+   border-color: white;
+}
+

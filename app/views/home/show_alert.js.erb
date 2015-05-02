@@ -1,4 +1,6 @@
-$('#myAlert').slideDown().delay(2000).fadeOut();
- $("body, html").animate({
-            scrollTop: $("#myAlert").offset().top-50
-        }, 600);
+$('#alert_placeholder').html('<%= escape_javascript(render 'alert', message: @message, type: @type) %>').fadeIn().delay(2000).fadeOut();
+<% if @type == "success" %>
+  $("#watchlist").html('<%= escape_javascript(render 'watchlist', movies: @watchlist) %>');
+<% end %>
+$("body, html").animate({ scrollTop: $("#myAlert").offset().top-50 }, 600);
+

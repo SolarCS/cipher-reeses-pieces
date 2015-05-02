@@ -13,14 +13,20 @@ class HomeController < ApplicationController
 
   def add_to_watchlist
     movie = Movie.build_from_itunes_response(params[:movie])
-    if current_user.movies.find_by_name(movie.name) == nil
-      current_user.movies << movie
+    if current_user.has_movie?(movie)
+      @message = "The movie is already on the watchlist..."
+      @type = "warning"
+      respond_to do |format|
+        format.js { render :file => "home/show_alert.js.erb" }
+      end
     else
-      flash[:alert] = "Movie is already on the watchlist"
+      current_user.add_movie movie
+      @watchlist = current_user.movies
+      @message = "You have a new movie on your watchlist!"
+      @type = "success"
       respond_to do |format|
         format.js { render :file => "home/show_alert.js.erb" }
       end
     end
-    @watchlist = current_user.movies
   end
 end

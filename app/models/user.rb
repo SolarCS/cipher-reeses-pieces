@@ -32,4 +32,11 @@ class User < ActiveRecord::Base
     update_attribute :auth_token, nil
   end
 
+  def has_movie?(movie)
+    return movies.find_by_name(movie.name) != nil
+  end
+
+  def add_movie(movie)
+    movies << movie
+  end
 end
